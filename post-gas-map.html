@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+	<script>
+      function initMap() {
+        var fcu = {lat: 24.178836, lng: 120.646726};
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            center: new google.maps.LatLng(24.178836, 120.646726),
+						mapTypeId: 'roadmap'
+          });	
+		var icons = {
+		postOffice: {
+		icon: './post-office.png'
+		},
+		gasStation: {
+		icon: './gas-station.png'
+		}
+		};
+		var features = [
+		{
+			//東海大學郵局
+		position: new google.maps.LatLng(24.182416, 120.602728),
+		type: 'postOffice'
+		},
+		{
+			//臺中逢甲郵局
+		position: new google.maps.LatLng(24.175272, 120.649134),
+		type: 'postOffice'
+		},
+		{
+			//臺中西屯郵局
+		position: new google.maps.LatLng(24.176690, 120.637643),
+		type: 'postOffice'
+		},
+		{
+			//臺中何厝郵局
+		position: new google.maps.LatLng(24.164694, 120.654240),
+		type: 'postOffice'
+		},
+		{
+			//臺中工業區郵局
+		position: new google.maps.LatLng(24.169928, 120.606454),
+		type: 'postOffice'
+		},
+		{
+			//臺中榮總郵局
+		position: new google.maps.LatLng(24.183758, 120.603707),
+		type: 'postOffice'
+		},
+		{
+			//臺中永安郵局
+		position: new google.maps.LatLng(24.190603, 120.612348),
+		type: 'postOffice'
+		},
+		{
+			//臺中大隆路郵局
+		position: new google.maps.LatLng(24.156463, 120.652960),
+		type: 'postOffice'
+		},
+		{
+			//臺中福安郵局
+		position: new google.maps.LatLng(24.183478, 120.618558),
+		type: 'postOffice'
+		},
+		{
+			//台中工業區加油加氣站
+		position: new google.maps.LatLng(24.183121, 120.614593),
+		type: 'gasStation'
+		},
+		{
+			//青海路站
+		position: new google.maps.LatLng(24.171363, 120.643930),
+		type: 'gasStation'
+		},
+		{
+			//文心路站
+		position: new google.maps.LatLng(24.162813, 120.650071),
+		type: 'gasStation'
+		},
+		{
+			//東大
+		position: new google.maps.LatLng(24.182946, 120.601329),
+		type: 'gasStation'
+		},
+		{
+			//安和
+		position: new google.maps.LatLng(24.166172, 120.618963),
+		type: 'gasStation'
+		},
+		{
+			//河南路
+		position: new google.maps.LatLng(24.172142, 120.645401),
+		type: 'gasStation'
+		},
+		{
+			//中清站
+		position: new google.maps.LatLng(24.208167, 120.651333),
+		type: 'gasStation'
+		},
+		{
+			//大度山
+		position: new google.maps.LatLng(24.184418, 120.590368),
+		type: 'gasStation'
+		},
+		{
+			//光明路
+		position: new google.maps.LatLng(24.198387, 120.642579),
+		type: 'gasStation'
+		},
+		{
+			//員村中清路
+		position: new google.maps.LatLng(24.208176, 120.651026),
+		type: 'gasStation'
+		},
+		{
+			//長安
+		position: new google.maps.LatLng(24.192622, 120.623166),
+		type: 'gasStation'
+		},
+		{
+			//年豐棧
+		position: new google.maps.LatLng(25.037736, 121.112666),
+		type: 'gasStation'
+		},
+		{
+			//安祥
+		position: new google.maps.LatLng(24.162825, 120.628394),
+		type: 'gasStation'
+		},
+		{
+			//北基世貿
+		position: new google.maps.LatLng(24.187421, 120.618397),
+		type: 'gasStation'
+		},
+		{
+			//光凰
+		position: new google.maps.LatLng(24.180119, 120.632492),
+		type: 'gasStation'
+		},
+		{
+			//文華
+		position: new google.maps.LatLng(24.171489, 120.659824),
+		type: 'gasStation'
+		},
+		{
+			//北基中港
+		position: new google.maps.LatLng(24.161804, 120.650496),
+		type: 'gasStation'
+		},
+		{
+			//中科
+		position: new google.maps.LatLng(24.201209, 120.609971),
+		type: 'gasStation'
+		},
+		{
+			//統一精工廣福
+		position: new google.maps.LatLng(24.195164, 120.644257),
+		type: 'gasStation'
+		},
+		{
+			//恩光中清交流道
+		position: new google.maps.LatLng(24.200782, 120.656976),
+		type: 'gasStation'
+		},
+		{
+			//福雅加油站
+		position: new google.maps.LatLng(24.205147, 120.629084),
+		type: 'gasStation'
+		}
+		];
+		// Create markers.
+		features.forEach(function(feature) {
+		var marker = new google.maps.Marker({
+		position: feature.position,
+		icon: icons[feature.type].icon,
+		map: map
+		});
+		});
+      }
+    </script>
+    <script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjj7dmFaEoQ9DXk0HzkEmtEsW3YwZkpCo&callback=initMap">
+    </script>
+  </body>
+</html>
